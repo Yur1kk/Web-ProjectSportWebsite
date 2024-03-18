@@ -1,0 +1,178 @@
+/* Зовнішній CSS */
+body {
+    border-left: 20px solid #333; /* Задаємо ліву рамку */
+    border-right: 20px solid #333; /* Задаємо праву рамку */
+    background-image: url('./image/image3.jpg'); /* Задаємо фонове зображення */
+    background-size: cover; /* Розтягуємо зображення на весь екран */
+    background-repeat: no-repeat; /* Забороняємо повторення зображення */
+}
+
+/* Стилі для блоку зображень */
+.block-image {
+    margin-top: 20px; /* Задаємо верхній відступ */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Початкова прозорість елемента */
+    }
+    to {
+        opacity: 1; /* Кінцева прозорість елемента */
+    }
+}
+
+.block-image img {
+    display: inline; /* Розташовуємо зображення в ряд */
+    width: 200px; /* Задаємо ширину зображення */
+    margin-right: 10px; /* Задаємо правий відступ */
+    animation-name: fadeIn; /* Використовуємо анімацію fadeIn */
+    animation-duration: 1s; /* Тривалість анімації */
+    animation-delay: 0.5s; /* Затримка перед початком анімації */
+    animation-timing-function: ease-in-out; /* Функція швидкості анімації */
+    animation-iteration-count: 1; /* Кількість повторень анімації */
+}
+
+.block-image label {
+    display: flex; /* Відображаємо елементи в ряд */
+    flex-direction: column; /* Відображаємо елементи вертикально */
+    align-items: center; /* Вирівнюємо елементи по центру */
+}
+
+/* Стилі для таблиці */
+.block-table table {
+    width: 100%; /* Задаємо ширину таблиці */
+    border-collapse: collapse; /* Згладжуємо границі таблиці */
+}
+
+.block-table th, td {
+    border: 5px solid #030303; /* Задаємо стиль границь для заголовків і комірок таблиці */
+    padding: 8px; /* Задаємо внутрішній відступ */
+    text-align: left; /* Вирівнюємо текст по лівому краю */
+}
+
+.block-table th {
+    background-color: #f2f2f2; /* Задаємо колір фону заголовків */
+}
+
+/* Стилі для списків */
+.block-lists h2 {
+    margin-top: 20px; /* Задаємо верхній відступ заголовка списку */
+}
+
+/* Стилі для форм */
+.block-form-textfield {
+    margin-top: 20px; /* Задаємо верхній відступ форми */
+}
+
+.block-form-textfield input[type="text"], 
+.block-form-textfield select, 
+.block-form-textfield textarea {
+    width: 50%; /* Задаємо ширину вводу тексту, випадаючого списку та текстової області */
+    padding: 8px; /* Задаємо внутрішній відступ */
+    margin-top: 5px; /* Задаємо верхній відступ */
+    margin-bottom: 10px; /* Задаємо нижній відступ */
+    box-sizing: border-box; /* Враховуємо границі в обчисленні ширини і висоти */
+}
+
+.block-form-textfield input[type="email"] {
+    width: 30%; /* Задаємо ширину вводу email */
+    padding: 8px; /* Задаємо внутрішній відступ */
+    margin-top: 5px; /* Задаємо верхній відступ */
+    margin-bottom: 10px; /* Задаємо нижній відступ */
+    box-sizing: border-box; /* Враховуємо границі в обчисленні ширини і висоти */
+}
+
+.block-form-textfield select {
+    width: calc(20% - 18px); /* Задаємо ширину випадаючого списку */
+}
+
+.block-form-textfield button {
+    padding: 10px; /* Задаємо внутрішній відступ */
+    background-color: #333; /* Задаємо колір фону кнопки */
+    color: #fff; /* Задаємо колір тексту кнопки */
+    border: none; /* Відмовляємося від границь */
+    cursor: pointer; /* Задаємо курсор */
+}
+
+.block-form-textfield button:hover {
+    background-color: #555; /* Задаємо колір фону кнопки при наведенні */
+}
+
+ /* Media query для невеликих екранів */
+@media screen and (max-width: 992px) {
+    header {
+        padding: 5px; /* Задаємо внутрішній відступ */
+    }
+    header h1 {
+        font-size: 20px; /* Задаємо розмір заголовка h1 */
+    }
+    nav ul li {
+        display: block; /* Відображаємо пункти меню списком */
+        margin: 5px 0; /* Задаємо зовнішній відступ */
+    }
+}
+
+/* Стилі Flexbox */
+main {
+    display: flex; /* Використовуємо Flexbox */
+    flex-direction: column; /* Відображаємо дочірні елементи стовпчиком */
+    align-items: center; /* Вирівнюємо елементи по центру по горизонталі */
+}
+
+section {
+    text-align: center; /* Вирівнюємо текст по центру */
+}
+
+.block-text {
+    text-align: center; /* Вирівнюємо текст по центру */
+}
+
+.block-lists ul {
+    display: flex; /* Використовуємо Flexbox */
+    flex-direction: column; /* Відображаємо елементи стовпчиком */
+    align-items: center; /* Вирівнюємо елементи по центру по горизонталі */
+}
+
+.block-lists ol {
+    display: flex; /* Використовуємо Flexbox */
+    flex-direction: column; /* Відображаємо елементи стовпчиком */
+    align-items: center; /* Вирівнюємо елементи по центру по горизонталі */
+}
+
+.block-lists dt {
+    margin-bottom: 5px; /* Задаємо нижній відступ між кожним заголовком і його вмістом */
+}
+
+.block-lists dd {
+    margin-bottom: 10px; /* Задаємо нижній відступ між кожним вмістом і наступним заголовком */
+}
+
+.block-text h2 {
+    color: blue; /* Задаємо колір тексту заголовка h2 */
+}
+
+.block-text p {
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Задаємо шрифт тексту */
+}
+
+.image-container {
+    display: flex; /* Використовуємо Flexbox */
+    flex-wrap: wrap; /* Дозволяємо елементам переноситися на новий рядок */
+    justify-content: center; /* Вирівнюємо елементи по центру по горизонталі */
+    gap: 20px; /* Задаємо відстань між фотографіями */
+}
+
+.image-item {
+    flex: 0 1 calc(25% - 20px); /* Задаємо розмір кожної фотографії */
+    text-align: center; /* Вирівнюємо текст по центру */
+}
+
+.image-item img {
+    width: 100%; /* Задаємо ширину зображення на всю ширину контейнера */
+    height: auto; /* Зберігаємо пропорції зображення */
+}
+
+.image-item label {
+    display: block; /* Відображаємо елементи блоком */
+    margin-top: 5px; /* Задаємо верхній відступ */
+}
