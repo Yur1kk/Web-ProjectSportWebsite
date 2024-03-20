@@ -75,7 +75,7 @@
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
+
   }
 
   #savedParticipants, #filteredParticipants {
@@ -167,7 +167,7 @@
 <div id="surveyResults">
   <h2>Результати опитування</h2>
   <ul id="savedParticipants">
-    <!-- Сюди будуть додані результати опитування -->
+
   </ul>
 </div>
 
@@ -198,7 +198,7 @@
 <div id="filterResults">
   <h2>Результати фільтрації</h2>
   <ul id="filteredParticipants">
-    <!-- Сюди будуть додані результати фільтрації -->
+
   </ul>
 </div>
 
@@ -211,31 +211,37 @@
   const filteredParticipantsList = document.getElementById('filteredParticipants');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); 
-    const formData = new FormData(form);
-    const answers = {};
+  event.preventDefault();
+  const formData = new FormData(form);
+  const answers = {};
 
-    for (const [key, value] of formData.entries()) {
+  for (const [key, value] of formData.entries()) {
+    if (answers[key]) {
+      if (!Array.isArray(answers[key])) {
+        answers[key] = [answers[key]]; // перетворюємо значення в масив, якщо воно є лише одним
+      }
+      answers[key].push(value); // додаємо нове значення до масиву
+    } else {
       answers[key] = value;
     }
+  }
 
-    let surveyResults = localStorage.getItem('surveyResults');
-    if (!surveyResults) {
+  let surveyResults = localStorage.getItem('surveyResults');
+  if (!surveyResults) {
+    surveyResults = [];
+  } else {
+    surveyResults = JSON.parse(surveyResults);
+    if (!Array.isArray(surveyResults)) {
       surveyResults = [];
-    } else {
-      surveyResults = JSON.parse(surveyResults);
-      if (!Array.isArray(surveyResults)) {
-        surveyResults = [];
-      }
     }
+  }
 
-    surveyResults.push(answers);
-    localStorage.setItem('surveyResults', JSON.stringify(surveyResults));
+  surveyResults.push(answers);
+  localStorage.setItem('surveyResults', JSON.stringify(surveyResults));
 
-    console.log('Результати опитування збережено:', answers);
-    displaySavedResults();
-  });
-
+  console.log('Результати опитування збережено:', answers);
+  displaySavedResults();
+});
   function displaySavedResults() {
     savedParticipantsList.innerHTML = '';
 
