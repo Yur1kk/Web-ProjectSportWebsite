@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#scoreboard {
+    text-align: center;
+    width: 480px;
+    margin: auto;
+}
+
+p {
+  text-align: center;
+}
+
+#top-scores,
+#worst-scores {
+    list-style-type: none;
+    padding: 0;
+}
+
+</style>
+</head>
+<body onload="startGame()">
+<script src="game-script.js">
+
+</script>
+<div id="controls" style="text-align:center;width:480px;">
+    <button onclick="jump()">Jump (Space)</button>
+    <button onclick="restartGame()">Restart</button>
+</div>
+<div id="scoreboard">
+  <h3>Top Scores</h3>
+  <ol id="top-scores"></ol>
+  <h3>Worst Scores</h3>
+  <ol id="worst-scores"></ol>
+</div>
+
+
+
+<p>The score will count one point for each frame you manage to "stay alive".</p>
+</body>
+</html>
