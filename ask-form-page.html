@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Опитування</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  select, input[type="datetime-local"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"], button[type="button"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  button[type="submit"]:hover, button[type="button"]:hover {
+    background-color: #45a049;
+  }
+
+  #surveyResults, #filterOptions {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #filterResults {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  #savedParticipants, #filteredParticipants {
+    list-style: none;
+    padding: 0;
+  }
+
+  #savedParticipants li, #filteredParticipants li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+            padding: 65px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+</style>
+</head>
+<body>
+  <header role="banner" style="background-color: #333; color: #fff; padding: 10px;">
+    <h1 style="font-size: 24px;">Головне про спортивну тематику</h1>
+    <nav>
+        <ul role="menu">
+            <li role="menuitem">
+                <a href="index.html" style="color: #fff; text-decoration: none;">Повернутись на головну</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<h2>Опитування</h2>
+<form id="surveyForm">
+  <label for="stat">Вкажіть стать</label>
+  <select id="stat" name="stat">
+    <option value="male">Чоловік</option>
+    <option value="female">Жінка</option>
+  </select><br><br>
+
+  <label>Вкажіть вік</label><br>
+  <input type="radio" id="age1" name="age" value="До 18">
+  <label for="age1">До 18</label><br>
+  <input type="radio" id="age2" name="age" value="Від 18 до 50">
+  <label for="age2">Від 18 до 50</label><br>
+  <input type="radio" id="age3" name="age" value="Більше 50">
+  <label for="age3">Більше 50</label><br><br>
+
+  <label>Виберіть види спорту які любите</label><br>
+  <input type="checkbox" id="sport1" name="sport" value="Плавання">
+  <label for="sport1">Плавання</label><br>
+  <input type="checkbox" id="sport2" name="sport" value="Бокс">
+  <label for="sport2">Бокс</label><br>
+  <input type="checkbox" id="sport3" name="sport" value="Футбол">
+  <label for="sport3">Футбол</label><br>
+  <input type="checkbox" id="sport4" name="sport" value="Волейбол">
+  <label for="sport4">Волейбол</label><br><br>
+
+  <label for="interviewTime">Вкажіть дату проходження опитування:</label><br>
+  <input type="datetime-local" id="interviewTime" name="interviewTime"><br><br>
+
+  <label for="averageThought">Вкажіть ваше ставлення до спорту за шкалою від 0 до 10:</label><br>
+  <input type="number" id="averageThought" name="averageThought" min="0" max="10"><br><br>
+
+  <button type="submit">Зберегти результат</button>
+</form>
+
+<div id="surveyResults">
+  <h2>Результати опитування</h2>
+  <ul id="savedParticipants">
+    <!-- Сюди будуть додані результати опитування -->
+  </ul>
+</div>
+
+<div id="filterOptions">
+  <h2>Фільтри</h2>
+  <label for="statFilter">Стать:</label>
+  <select id="statFilter">
+    <option value="">Усі</option>
+    <option value="male">Чоловік</option>
+    <option value="female">Жінка</option>
+  </select><br><br>
+  <label for="ageFilter">Вік:</label>
+  <select id="ageFilter">
+    <option value="">Усі</option>
+    <option value="До 18">До 18</option>
+    <option value="Від 18 до 50">Від 18 до 50</option>
+    <option value="Більше 50">Більше 50</option>
+  </select><br><br>
+  <label for="dateFilter">Виберіть дату проходження опитування:</label><br>
+<input type="datetime-local" id="dateFilter" name="dateFilter"><br><br>
+
+  
+  
+  <button type="button" id="filterButton">Фільтрувати</button>
+  <button type="button" id="clearButton">Очистити localStorage</button>
+</div>
+
+<div id="filterResults">
+  <h2>Результати фільтрації</h2>
+  <ul id="filteredParticipants">
+    <!-- Сюди будуть додані результати фільтрації -->
+  </ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById('surveyForm');
+  const savedParticipantsList = document.getElementById('savedParticipants');
+  const filterButton = document.getElementById('filterButton');
+  const clearButton = document.getElementById('clearButton');
+  const filteredParticipantsList = document.getElementById('filteredParticipants');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    const formData = new FormData(form);
+    const answers = {};
+
+    for (const [key, value] of formData.entries()) {
+      answers[key] = value;
+    }
+
+    let surveyResults = localStorage.getItem('surveyResults');
+    if (!surveyResults) {
+      surveyResults = [];
+    } else {
+      surveyResults = JSON.parse(surveyResults);
+      if (!Array.isArray(surveyResults)) {
+        surveyResults = [];
+      }
+    }
+
+    surveyResults.push(answers);
+    localStorage.setItem('surveyResults', JSON.stringify(surveyResults));
+
+    console.log('Результати опитування збережено:', answers);
+    displaySavedResults();
+  });
+
+  function displaySavedResults() {
+    savedParticipantsList.innerHTML = '';
+
+    let surveyResults = localStorage.getItem('surveyResults');
+    if (surveyResults) {
+      surveyResults = JSON.parse(surveyResults);
+      surveyResults.forEach(participant => {
+        const listItem = document.createElement('li');
+        const sports = Array.isArray(participant.sport) ? participant.sport.join(', ') : participant.sport;
+        listItem.textContent = `Стать: ${participant.stat}, Вік: ${participant.age}, Улюблені види спорту: ${sports ? sports : 'Немає'}, Дата проходження опитування: ${participant.interviewTime}, Ставлення до спорту: ${participant.averageThought}`;
+        savedParticipantsList.appendChild(listItem);
+      });
+    }
+  }
+
+  function displayFilteredResults(participants) {
+    filteredParticipantsList.innerHTML = '';
+
+    participants.forEach(participant => {
+      const listItem = document.createElement('li');
+      const sports = Array.isArray(participant.sport) ? participant.sport.join(', ') : participant.sport;
+      listItem.textContent = `Стать: ${participant.stat}, Вік: ${participant.age}, Улюблені види спорту: ${sports ? sports : 'Немає'}, Дата проходження опитування: ${participant.interviewTime}, Ставлення до спорту: ${participant.averageThought}`;
+      filteredParticipantsList.appendChild(listItem);
+    });
+  }
+
+  function filterParticipants() {
+    const surveyResults = JSON.parse(localStorage.getItem('surveyResults')) || [];
+    const statFilter = document.getElementById('statFilter').value;
+    const ageFilter = document.getElementById('ageFilter').value;
+    const dateFilter = document.getElementById('dateFilter').value;
+
+    let filteredParticipants = surveyResults;
+
+    if (statFilter) {
+      filteredParticipants = filteredParticipants.filter(participant => participant.stat === statFilter);
+    }
+
+    if (ageFilter) {
+      filteredParticipants = filteredParticipants.filter(participant => participant.age === ageFilter);
+    }
+
+    if (dateFilter) {
+      filteredParticipants = filteredParticipants.filter(participant => participant.interviewTime === dateFilter);
+    }
+
+    displayFilteredResults(filteredParticipants);
+  }
+
+  filterButton.addEventListener('click', filterParticipants);
+
+  clearButton.addEventListener('click', function() {
+    localStorage.removeItem('surveyResults');
+    savedParticipantsList.innerHTML = '';
+    filteredParticipantsList.innerHTML = '';
+  });
+
+  displaySavedResults();
+});
+
+
+</script>
+
+</body>
+</html>
