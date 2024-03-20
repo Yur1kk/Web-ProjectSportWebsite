@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #test-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #submit-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  #submit-btn:hover {
+    background-color: #45a049;
+  }
+
+  #result {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+ 
+        header h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+            padding: 65px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+</style>
+</head>
+<body>
+  <header role="banner" style="background-color: #333; color: #fff; padding: 10px;">
+    <h1 style="font-size: 24px;">Головне про спортивну тематику</h1>
+    <nav>
+        <ul role="menu">
+            <li role="menuitem">
+                <a href="index.html" style="color: #fff; text-decoration: none;">Повернутись на головну</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div id="test-container">
+
+</div>
+<button id="submit-btn">Перевірити відповіді</button>
+<div id="result"></div>
+<script src="script.js"></script>
+</body>
+</html>
