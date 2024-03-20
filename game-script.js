@@ -42,7 +42,7 @@ function component(width, height, color, x, y, type) {
     this.speedY = 0;    
     this.x = x;
     this.y = y;    
-    this.score = 0; // Додана властивість для рахунку
+    this.score = 0; 
     this.update = function() {
         ctx = myGameArea.context;
         if (this.type == "text") {
